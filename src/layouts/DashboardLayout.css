@@ -1,0 +1,10 @@
+.dashboard-layout {
+    display: flex;
+  }
+  
+  .dashboard-content {
+    flex-grow: 1; /* Takes up the remaining space */
+    padding: 30px;
+    height: 100vh;
+    overflow-y: auto; /* Allows scrolling if content is long */
+  }

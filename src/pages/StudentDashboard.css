@@ -1,0 +1,89 @@
+.student-dashboard {
+    padding: 18px;
+    max-width: 1100px; 
+    margin: 0 auto;    
+  }
+  
+  .dashboard-header {
+    margin-bottom: 40px;
+  }
+  
+  .dashboard-header h1 {
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .streak-widget {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  /* This mimics the Flutter Stack */
+  .streak-icon-container {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .streak-svg {
+    width: 100%;
+    height: 100%;
+    color: #FF9917; /* Replicates the colorFilter */
+  }
+  
+  /* This mimics the Positioned Stack */
+  .streak-number-container {
+    position: absolute;
+    bottom: -15px; /* Adjust as needed */
+    width: 80px;
+    height: 80px;
+    background-color: #FEC91A;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 4px solid #f4f7f6; /* Adds a bit of separation */
+  }
+  
+  .streak-number {
+    font-size: 36px;
+    font-weight: 500;
+    color: #6C460B;
+  }
+  
+  .streak-text {
+    font-size: 28px;
+    padding-top: 40px;
+  }
+  
+  /* This mimics the Container with BoxDecoration */
+  .announcements-card {
+    background-color: white;
+    box-shadow: 0 5px 5px 1px rgba(0, 0, 0, 0.28);
+    border-radius: 8px;
+    overflow: hidden; /* Important for border-radius on children */
+    
+  }
+  
+  .card-header {
+    background-color: #0d6efd; /* Example primary color */
+    color: white;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .card-header h2 {
+    font-size: 26px;
+    font-weight: 400;
+    margin: 0;
+  }
+  
+  .card-body {
+    padding: 20px;
+    min-height: 200px; /* Placeholder height */
+  }
