@@ -1,10 +1,12 @@
+import { useNavigate } from 'react-router-dom';
 import React from 'react';
 import './SignInPage.css';
 import GoogleIcon from './GoogleIcon';
 
 export function SignInPage() {
+  const navigate = useNavigate();
   const handleGoogleSignIn = () => {
-    console.log("Sign-in button clicked! Firebase logic will go here later.");
+    navigate("/dashboard");
   };
 
   return (
