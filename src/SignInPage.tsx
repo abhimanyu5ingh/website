@@ -1,12 +1,22 @@
-import { useNavigate } from 'react-router-dom';
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import { signInWithPopup } from 'firebase/auth';
+import { auth, googleProvider } from './firebaseConfig';
 import './SignInPage.css';
 import GoogleIcon from './GoogleIcon';
 
 export function SignInPage() {
   const navigate = useNavigate();
-  const handleGoogleSignIn = () => {
-    navigate("/dashboard");
+
+  const handleGoogleSignIn = async () => {
+    try {
+      // This triggers the Google sign-in popup
+      await signInWithPopup(auth, googleProvider);
+      // After successful sign-in, navigate to the dashboard
+      navigate('/dashboard');
+    } catch (error) {
+      console.error("Error during Google sign-in:", error);
+    }
   };
 
   return (
