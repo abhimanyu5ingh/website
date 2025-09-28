@@ -39,15 +39,14 @@
   /* This mimics the Positioned Stack */
   .streak-number-container {
     position: absolute;
-    bottom: -15px; /* Adjust as needed */
-    width: 80px;
-    height: 80px;
-    background-color: #FEC91A;
+    bottom: 3px; /* Adjust as needed */
+    width: 70px;
+    height: 70px;
+    background-color: #FF9917;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 4px solid #f4f7f6; /* Adds a bit of separation */
   }
   
   .streak-number {
@@ -71,7 +70,7 @@
   }
   
   .card-header {
-    background-color: #0d6efd; /* Example primary color */
+    background-color: #0f0f0f; /* Example primary color */
     color: white;
     padding: 20px;
     text-align: center;
