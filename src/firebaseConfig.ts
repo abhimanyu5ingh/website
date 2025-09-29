@@ -1,21 +1,21 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getAuth, GoogleAuthProvider } from "firebase/auth"; // <-- Added Auth imports
+import { getAuth, GoogleAuthProvider } from "firebase/auth"; // We need these for login
 
-// Your web app's Firebase configuration
+// Your new web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyCZKN56WuYIhAHaEibSPzqhS9dyi9dPFvY",
-  authDomain: "website-3ad6d.firebaseapp.com",
-  projectId: "website-3ad6d",
-  storageBucket: "website-3ad6d.firebasestorage.app",
-  messagingSenderId: "786778710819",
-  appId: "1:786778710819:web:61a6707508f8005e5ba296",
-  measurementId: "G-MRYJVDXMQ7"
+  apiKey: "AIzaSyBD2uK0-DQEjqFoQqaQECp30Tlx5SkFn7Q",
+  authDomain: "attendanceprototype-ee475.firebaseapp.com",
+  projectId: "attendanceprototype-ee475",
+  storageBucket: "attendanceprototype-ee475.firebasestorage.app",
+  messagingSenderId: "511508294220",
+  appId: "1:511508294220:web:84512cc0f17f28f4d662e9",
+  measurementId: "G-5WWC4VCZ1L"
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
-// Initialize Firebase Authentication and export it
+// Initialize Firebase Authentication and export the services
 export const auth = getAuth(app);
 export const googleProvider = new GoogleAuthProvider();

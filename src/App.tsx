@@ -7,6 +7,7 @@ import { auth } from './firebaseConfig';
 import { SignInPage } from './SignInPage';
 import { DashboardLayout } from './layouts/DashboardLayout';
 import { StudentDashboard } from './pages/StudentDashboard';
+import { TeacherDashboard } from './pages/TeacherDashboard'; // 1. Import the new teacher page
 import { AttendancePage } from './pages/AttendancePage';
 import { AssignmentsPage } from './pages/AssignmentsPage';
 
@@ -18,6 +19,22 @@ const ProtectedRoute = ({ user, children }: { user: User | null, children: JSX.E
   }
   return children;
 };
+
+// 2. Helper function to determine the correct redirect path based on email
+const getRedirectPath = (user: User | null): string => {
+    if (!user || !user.email) return "/login";
+    
+    const email = user.email.toLowerCase();
+    if (email.endsWith('@goa.bits-pilani.ac.in')) {
+        if (email.startsWith('f20')) {
+            return "/dashboard"; // Student path
+        } else {
+            return "/teacher-dashboard"; // Teacher path
+        }
+    }
+    return "/login"; // Default for invalid emails or logged-out users
+};
+
 
 function App() {
   const [user, setUser] = useState<User | null>(null);
@@ -44,6 +61,7 @@ function App() {
       <Routes>
         <Route path="/login" element={<SignInPage />} />
 
+        {/* Student Dashboard Routes */}
         <Route
           path="/dashboard/*"
           element={
@@ -52,14 +70,23 @@ function App() {
             </ProtectedRoute>
           }
         >
-          {/* Note: In React Router v6, nested routes are relative to the parent path */}
           <Route index element={<StudentDashboard />} />
           <Route path="attendance" element={<AttendancePage />} />
           <Route path="assignments" element={<AssignmentsPage />} />
         </Route>
 
-        {/* Redirect base URL to dashboard if logged in, otherwise to login */}
-        <Route path="*" element={<Navigate to={user ? "/dashboard" : "/login"} />} />
+        {/* 3. Add the Teacher Dashboard Route */}
+        <Route
+          path="/teacher-dashboard"
+          element={
+            <ProtectedRoute user={user}>
+              <TeacherDashboard />
+            </ProtectedRoute>
+          }
+        />
+
+        {/* 4. Update the catch-all redirect to use our new logic */}
+        <Route path="*" element={<Navigate to={getRedirectPath(user)} />} />
       </Routes>
     </BrowserRouter>
   );
